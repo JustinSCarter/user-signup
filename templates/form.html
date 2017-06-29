@@ -7,25 +7,25 @@
 <tr>
     <td><label for="username">Username</label></td>
     <td><input name="username" type="text" value=""></td>
-    <td><div class="error"><!--Please provide a valid username--></div></td>
+    <td><div class="error">{{Name-Error}}<!--Please provide a valid username--></div></td>
     <td><p> A valid username contains no spaces and is between 3 and 20 characters long.</p>
 </tr>    
 <tr>
     <td><label for="password">Password</label></td>
     <td><input name="password" type="password"></td>
-    <td><span class="error"><!--Please provide a valid password--></span></td>
+    <td><span class="error">{{Pass-Error}}<!--Please provide a valid password--></span></td>
     <td><p> A valid password contains no spaces and is between 3 and 20 characters long.</p>
 </tr>    
 <tr>
     <td><label for="verify">Verify Password</label></td>
     <td><input name="verify" type="password"></td>
-    <td><span class="error"><!--Passwords do not match--></span></td>
+    <td><span class="error">{{Ver-Error}}<!--Passwords do not match--></span></td>
     <td><p> Must match your original password.</p></td>
 </tr>    
 <tr>
     <td><label for="email">Email (optional)</label></td>
     <td><input name="email" type="email" value=""></td>
-    <td><span class="error"><!--Please provide a valid Email address--></span></td>
+    <td><span class="error">{{Email-Error}}<!--Please provide a valid Email address--></span></td>
     <td><p> A valid email contains no spaces, is between 3 and 20 characters long and contains one "@" and one ".".
 </tr>
 </table>
