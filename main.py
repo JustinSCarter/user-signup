@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 
 
-errors = ()
+errors = ('nope')
 
 @app.route("/", methods=['POST'])
 def login():
@@ -25,7 +25,7 @@ def login():
     #     errors.insert(3,"Please provide a valid email")
 
     if any(errors):
-        return render_template('form.html', Name_Err=errors[0], Pass_Err=errors[1], Ver_Err=errors[2], Mail_Err=errors[3])
+        return render_template('form.html', Name_Err=errors[0], Pass_Err=errors[1], Ver_Err=errors[2], Mail_Err=errors[3], username=username, email=email)
     else:
         return render_template("success.html", username=username)
 
