@@ -22,11 +22,11 @@ def login():
     Email_Error = ' '
 
     #Checks the username
-    if len(username)<3 or len(username)>20 or username == '' or ' ' in username:
+    if len(username) < 3 or len(username) > 20 or username == '' or ' ' in username:
         Name_Error = "Please provide a valid username"
 
     #Checks the password
-    if len(password)<3 or len(password)>20 or username == '' or ' ' in password:
+    if len(password) < 3 or len(password) > 20 or username == '' or ' ' in password:
         Pass_Error = "Please provide a valid password"
 
     #Checks the verified password
@@ -34,7 +34,7 @@ def login():
         Ver_Error = "Does not match your password"
 
     #Checks the email
-    if len(email)<3 or len(email)>20 or username == '' or ' ' in email or email.count('@') != 1 or email.count('.') !=1:
+    if len(email) < 3 or len(email) > 20 or username == '' or ' ' in email or email.count('@') != 1 or email.count('.') != 1:
         Email_Error = "Please provide a valid email"
 
     if Name_Error == ' ' and Pass_Error == ' ' and Ver_Error == ' ' and Email_Error == ' ':
@@ -48,7 +48,5 @@ def login():
 def index():
     '''renders the inital signup form'''
     return render_template('form.html', Name_Err='', Pass_Err='', Ver_Err='', Mail_Err='')
-
-
 
 app.run()
