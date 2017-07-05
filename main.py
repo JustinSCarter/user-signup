@@ -16,37 +16,33 @@ def login():
     password = request.form['password']
     verify = request.form['verify']
     email = request.form['email']
+    Name_Error = ' '
+    Pass_Error = ' '
+    Ver_Error = ' '
+    Email_Error = ' '
 
     #Checks the username
-    if len(username)<3<20<len(username) or '' in username or ' ' in username:
-        errors.insert(0,"Please provide a valid username")
-    else:
-        errors.insert(0,None)
+    if len(username)<3 or len(username)>20 or username == '' or ' ' in username:
+        Name_Error = "Please provide a valid username"
 
     #Checks the password
-    if len(password)<3<20<len(password) or '' in password or ' ' in password:
-        errors.insert(1,"Please provide a valid password")
-    else:
-        errors.insert(1,None)
+    if len(password)<3 or len(password)>20 or username == '' or ' ' in password:
+        Pass_Error = "Please provide a valid password"
 
     #Checks the verified password
     if verify != password:
-        errors.insert(2,"Does not match your password")
-    else:
-        errors.insert(2,None)
+        Ver_Error = "Does not match your password"
 
     #Checks the email
-    if len(email)<3<20<len(email) or '' in email or ' ' in email or email.count('@') != 1 or email.count('.') !=1:
-        errors.insert(3,"Please provide a valid email")
-    else:
-        errors.insert(3,None)
+    if len(email)<3 or len(email)>20 or username == '' or ' ' in email or email.count('@') != 1 or email.count('.') !=1:
+        Email_Error = "Please provide a valid email"
 
-    if any in errors:
-        return render_template('form.html', Name_Err=errors[0], Pass_Err=errors[1],
-                               Ver_Err=errors[2], Mail_Err=errors[3],
-                               username=username, email=email)
+    if Name_Error == ' ' and Pass_Error == ' ' and Ver_Error == ' ' and Email_Error == ' ':
+        return render_template("success.html", username=username)
     else:
-        return render_template("success.html", username=username)        
+        return render_template('form.html', Name_Err=Name_Error, Pass_Err=Pass_Error,
+                               Ver_Err=Ver_Error, Mail_Err=Email_Error,
+                               username=username, email=email)
 
 @app.route("/")
 def index():
