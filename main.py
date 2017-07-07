@@ -34,7 +34,7 @@ def login():
         Ver_Error = "Does not match your password"
 
     #Checks the email
-    if len(email) < 3 or len(email) > 20 or username == '' or ' ' in email or email.count('@') != 1 or email.count('.') != 1:
+    if len(email) < 3 or len(email) > 20 or ' ' in email or email.count('@') != 1 or email.count('.') != 1:
         Email_Error = "Please provide a valid email"
 
     if Name_Error == ' ' and Pass_Error == ' ' and Ver_Error == ' ' and Email_Error == ' ':
